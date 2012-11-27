@@ -1,9 +1,29 @@
-/* This script and many more are available free online at
-The JavaScript Source :: http://www.javascriptsource.com
-Created by: James Crooke :: http://www.cj-design.com */
-
 var useranswers = new Array();
 var answered = 0;
+var i = 0;
+
+/*function renderQuiz() {
+  for(i=0;i<questions.length;i++) {
+    document.writeln('<p class="question">' + questions[i] + ' <span id="result_' + i + '"><img src="blank.gif" style="border:0" alt="" /></span></p>');
+    for(j=0;j<choices[i].length;j++) {
+      document.writeln('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
+    }
+    //ini buat bikin button tiap nomer
+    document.write('<button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\'red\'); return false;"> Show </button> <br>');
+  }
+  document.writeln('<p><input type="submit" value="Show Score" onclick="showScore()" /> <input type="submit" value="Reset Quiz" onclick="resetQuiz(true)" /></p><p style="display:none"><img src="correct.gif" style="border:0" alt="Correct!" /><img src="incorrect.gif" style="border:0" alt="Incorrect!" /></p>');
+}*/
+
+//Renderquiz yg satu2
+/*function renderQuiz() {
+    document.writeln('<p class="question">' + questions[i] + ' <span id="result_' + i + '"><img src="blank.gif" style="border:0" alt="" /></span></p>');
+    for(j=0;j<choices[i].length;j++) {
+      document.writeln('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
+    }
+    //ini buat bikin button tiap nomer
+    document.write('<button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\'red\'); return false;"> Show </button> <br>');
+  document.writeln('<p><input type="submit" value="Show Score" onclick="showScore()" /> <input type="submit" value="Reset Quiz" onclick="resetQuiz(true)" /></p><p style="display:none"><img src="correct.gif" style="border:0" alt="Correct!" /><img src="incorrect.gif" style="border:0" alt="Incorrect!" /></p>');
+}*/
 
 function renderQuiz() {
   for(i=0;i<questions.length;i++) {
@@ -11,15 +31,20 @@ function renderQuiz() {
     for(j=0;j<choices[i].length;j++) {
       document.writeln('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
     }
+    //ini buat bikin button tiap nomer
+    document.write('<button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\'red\'); return false;"> Show </button> <br>');
   }
   document.writeln('<p><input type="submit" value="Show Score" onclick="showScore()" /> <input type="submit" value="Reset Quiz" onclick="resetQuiz(true)" /></p><p style="display:none"><img src="correct.gif" style="border:0" alt="Correct!" /><img src="incorrect.gif" style="border:0" alt="Incorrect!" /></p>');
 }
+
+
 function resetQuiz(showConfirm) {
   if(showConfirm)
     if(!confirm("Are you sure you want to reset your answers and start from the beginning?"))
       return false;
   document.location = document.location;
 }
+
 function submitAnswer(questionId, obj, classId, labelId) {
   useranswers[questionId] = obj.value;
   document.getElementById(labelId).style.fontWeight = "bold";
@@ -27,6 +52,7 @@ function submitAnswer(questionId, obj, classId, labelId) {
   showResult(questionId);
   answered++;
 }
+
 function showResult(questionId) {
   if(answers[questionId] == useranswers[questionId]) {
     document.getElementById('result_' + questionId).innerHTML = '<img src="img/correct.gif" style="border:0" alt="Correct!" />';
@@ -34,6 +60,7 @@ function showResult(questionId) {
     document.getElementById('result_' + questionId).innerHTML = '<img src="img/incorrect.gif" style="border:0" alt="Incorrect!" />';
   }
 }
+
 function showScore() {
   if(answered != answers.length) {
     alert("You have not answered all of the questions yet!");
@@ -76,6 +103,7 @@ function showScore() {
     alert(alertMsg);
   }
 }
+
 function disableQuestion(classId) {
   var alltags=document.all? document.all : document.getElementsByTagName("*")
   for (i=0; i<alltags.length; i++) {
@@ -83,4 +111,12 @@ function disableQuestion(classId) {
       alltags[i].disabled = true;
     }
   }
+}
+
+function showStuff(id) {
+  document.getElementById(id).style.display = 'block';
+}
+
+function hideStuff(id) {
+  document.getElementById(id).style.display = 'none';
 }

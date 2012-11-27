@@ -1,7 +1,3 @@
-/* This script and many more are available free online at
-The JavaScript Source :: http://www.javascriptsource.com
-Created by: James Crooke :: http://www.cj-design.com */
-
 var questions = new Array();
 var choices = new Array();
 var answers = new Array();
