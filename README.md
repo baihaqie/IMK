@@ -1,5 +1,3 @@
-README
-
 ## DESKRIPSI KUIS
 Kuis ini merupakan kuis untuk menguji pemahaman mahasiswa dalam mata kuliah Interaksi Manusia Komputer. Kuis ini berisi 10 soal pilihan ganda. Kuis ini diambil dari materi-materi perkuliahan mulai dari materi 1 sampai materi 7.
 
@@ -15,21 +13,28 @@ Selamat Mengerjakan :D
 Kuis ini dibangun dengan menggunakan HTML, CSS dan javascript.
 Untuk tampilannya, pengembang menggunakan Twitter Bootstrap versi 2.2.1 dengan beberapa tambahan baik dari pengembang maupun dari sumber lainnya.
 CSS: 
+
 1. Bootstrap.css (minor edit: navbar.css, jumbotron.css)
+
 2. Style.css
 
 JS:
+
 1. Bootbox.js (licensed)
+
 2. Bootstrap.js (licensed)
+
 3. quiz_function: Memuat seluruh fungsi untuk merender soal dari quiz_config.
+
 4. quiz_config: Memuat soal dan jawaban, serta feedback kuis.
 
 ## PENGEMBANG
-
-1. Baihqie Ndaru Findarto
-2. ALivi Nur Rosida
 Mahasiswa S1 Pendidikan Teknik Informatika Universitas Negeri Malang
+
+1. Baihaqie Ndaru F. (2009)
+
+2. ALivi Nur Rosida (2009)
 
 
 ## DEMO URL
-baihaqie.github.com/IMK
+http://baihaqie.github.com/IMK/
