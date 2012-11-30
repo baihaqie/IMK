@@ -26,7 +26,7 @@ function renderQuiz()
 		for(j=0;j<choices[i].length;j++) 
     	{
 			document.write('<div class="span6">');
-      		document.write('<button class="btn btn-medium btn-block" type="button" name="question_'+ i +'" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\');" /> <label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> &nbsp;&nbsp;' + choices[i][j] + '</label> </button><br>');
+      		document.write('<button class="btn btn-medium btn-block" value="' + choices[i][j] + '" type="button" name="question_'+ i +'" onclick="showStuff(\'exp_'+ i +'\'); submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\');" /> <label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '">&nbsp;&nbsp;' + choices[i][j] + '</label> </button><br>');
 			document.write('</div>');
 		}	
 			//backup 17:17
@@ -51,6 +51,9 @@ function renderQuiz()
 		}
 		document.write('</div>');
 		document.write('</div>');
+		document.write('<div id="exp_'+ i +'" style="display:none">');
+			document.write('<br><a id="exp_'+ exp[i] +'" class="btn btn-mini btn-inverse" data-content="'+ nexp[i] +'" rel="popover" href="#" data-original-title="Penjelasan"> &nbsp;&nbsp; Lihat penjelasan? &nbsp;</a>');
+		document.write('</div>'); 
 		document.write('</div>'); 
    
 	}
@@ -146,3 +149,34 @@ function showStuff(id) {
 function hideStuff(id) {
   document.getElementById(id).style.display = 'none';
 }
+
+$(function ()  
+{ $("#exp_nol").popover({animation:true});  
+});
+$(function ()  
+{ $("#exp_satu").popover({animation:true});  
+});
+$(function ()  
+{ $("#exp_dua").popover({animation:true});  
+});
+$(function ()  
+{ $("#exp_tiga").popover({animation:true});  
+});
+$(function ()  
+{ $("#exp_empat").popover({animation:true}); 
+});
+$(function ()  
+{ $("#exp_lima").popover({animation:true});
+});
+$(function ()  
+{ $("#exp_enam").popover({animation:true});
+});
+$(function ()  
+{ $("#exp_tujuh").popover({animation:true});
+});
+$(function ()  
+{ $("#exp_delapan").popover({animation:true});
+});
+$(function ()  
+{ $("#exp_sembilan").popover({animation:true});
+});
