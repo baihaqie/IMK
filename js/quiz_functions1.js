@@ -26,7 +26,7 @@ function renderQuiz()
 		for(j=0;j<choices[i].length;j++) 
     	{
 			document.write('<div class="span6">');
-      		document.write('<button class="btn btn-medium btn-block" type="button" name="question_'+ i +'" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\');" /> <label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> &nbsp;&nbsp;' + choices[i][j] + '</label> </button><br>');
+      		document.write('<button class="btn btn-medium btn-block" value="' + choices[i][j] + '" type="button" name="question_'+ i +'" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\');" /> <label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '">&nbsp;&nbsp;' + choices[i][j] + '</label> </button><br>');
 			document.write('</div>');
 		}	
 			//backup 17:17
