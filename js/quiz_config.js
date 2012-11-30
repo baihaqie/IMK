@@ -4,8 +4,20 @@ var choices = new Array();
 var answers = new Array();
 var response = new Array();
 var exp = new Array();
+var nexp = new Array();
 
 // To add more questions, just follow the format below.
+nexp[0]="Ergonomi adalah ilmu yang mempelajari interaksi antara manusia dengan elemen-elemen lain dalam suatu sistem salah satunya mempelajari tentang kemampuan fisik dari pengguna.";
+nexp[1]="Faktor keberhasilan sistem dapat dilihat dari tiga hal yaitu useful (berguna), used (digunakan) dan usable (dapat digunakan). Dapat dikerjakan dengan mudah dan alamiah, tanpa adanya bahaya kesalahan merupakan faktor keberhasilan usable.";
+nexp[2]="Tahap pemrosesan informasi yaitu, menangkap informasi, perbandingan, pengambilan keputusan dan aksi";
+nexp[3]="Fitt's Law merupakan hukum yang menyatakan bahwa waktu reaksi berbanding lurus dengan jarak";
+nexp[4]="Pengukuran daya guna (usability) dapat dilakukan dengan tiga faktor yaitu efektivitas, efisiensi, dan kepuasan subjektif";
+nexp[5]="Pembuatan laporan keuangan lebih efisien dilakukan di Ms.Excel (sdh tersedia rumus)";
+nexp[6]="Ketelitian dan kelengkapan di mana user dapat mencapai tujuan merupakan atribut daya guna efektifitas";
+nexp[7]="Memastikan design dapat dipahami user dan konsisten serta fleksible merupakan fase Design";
+nexp[8]="Konsistensi dalam suatu sistem dalam prinsip CRAP termasuk dalam prinsip Repetition.";
+nexp[9]="Membantu pengguna untuk fokus pada bagian yang penting, yang akan menuntun pengguna untuk mengetahui apa yang harus dilakukan, merupakan prinsip Contrast";
+
 exp[0]="nol";
 exp[1]="satu";
 exp[2]="dua";
@@ -14,9 +26,8 @@ exp[4]="empat";
 exp[5]="lima";
 exp[6]="enam";
 exp[7]="tujuh";
-exp[8]="depalan";
+exp[8]="delapan";
 exp[9]="sembilan";
-
 
 id[0]="0";
 questions[0] = "Ilmu yang menunjang interaksi manusia komputer yang digunakan untuk mempelajari kemampuan fisik dari pengguna (manusia) adalah ...";
