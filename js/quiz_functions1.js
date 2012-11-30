@@ -33,7 +33,7 @@ function renderQuiz()
 			/*document.write('<div id ="'+ idDiv +'">');
       		document.writeln('<button align="justify" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label>');
 			document.write('</div>');*/
-			
+			 
     	//}
 		document.write('<div class="span6">');
 		if(i===0)
