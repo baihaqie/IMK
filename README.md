@@ -31,9 +31,9 @@ JS:
 ## PENGEMBANG
 Mahasiswa S1 Pendidikan Teknik Informatika Universitas Negeri Malang
 
-1. Baihqie Ndaru Findarto
+1. Baihaqie Ndaru F. (2009)
 
-2. ALivi Nur Rosida
+2. ALivi Nur Rosida (2009)
 
 
 ## DEMO URL
