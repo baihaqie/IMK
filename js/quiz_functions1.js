@@ -15,37 +15,52 @@ function renderQuiz()
 			document.write('<div id ="'+ i +'" style="display: none;">');
 		}
 		var next=i+1;
-    var back=i-1;
-    document.write('<B>Soal' +next+ '</B>');
+		var back=i-1;
+		var idDiv=0;
+		
+		document.write('<B>Soal  ' +next+ '</B>');
 		document.write('<p class="question">' + questions[i] + ' <span id="result_' + i + '"><img src="blank.gif" style="border:0" alt="" /></span></p>');
-    	for(j=0;j<choices[i].length;j++) 
+    	
+		for(j=0;j<choices[i].length;j++) 
     	{
-      		document.write('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
+			document.write('<div id ="'+ idDiv +'">');
+			
+			document.write('<div class ="row">');
+			
+      		document.writeln('<button name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label>');
+			
+			document.write('</div>');
+			
+			/*document.writeln('<button name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label>');*/
+			document.write('</div>');
+			document.write('<br>');
     	}
 
-    if(i===0)
-    {
-      document.write('<button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\''+ next +'\'); hideStuff(\''+ i +'\'); return false;"> Next </button> <br>');
+		if(i===0)
+		{
+			document.writeln('<button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\''+ next +'\'); hideStuff(\''+ i +'\'); return false;">  Next  </button>');
 
-    }
-    else if(i===9)
-    {
-      document.write('<button class="btn btn-medium btn-info" type="submit" onclick="showStuff(\''+ back +'\'); hideStuff(\''+ i +'\'); return false;"> Back </button> <br>');
-      document.write('<p><input type="submit" value="Show Score" onclick="showScore()" /> <input type="submit" value="Reset Quiz" onclick="resetQuiz(true)" /></p><p style="display:none"><img src="correct.gif" style="border:0" alt="Correct!" /><img src="incorrect.gif" style="border:0" alt="Incorrect!" /></p>');
-    }
-    else
-    {
-      document.write('<button class="btn btn-medium btn-info" type="submit" onclick="showStuff(\''+ back +'\'); hideStuff(\''+ i +'\'); return false;"> Back </button> <button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\''+ next +'\'); hideStuff(\''+ i +'\'); return false;"> Next </button> <br>');
-    }
-    document.write('</div>');    
-  }
+		}
+		else if(i===9)
+		{
+			document.write('<button class="btn btn-medium btn-info" type="submit" onclick="showStuff(\''+ back +'\'); hideStuff(\''+ i +'\'); return false;">  Back  </button> <button class="btn btn-medium btn-warning" type="submit" onclick="showScore();"> Lihat Nilai </button> <button class="btn btn-medium btn-danger" type="submit" onclick="resetQuiz();"> Reset Jawaban </button>');
+		}
+		else
+		{
+			document.write('<button class="btn btn-medium btn-info" type="submit" onclick="showStuff(\''+ back +'\'); hideStuff(\''+ i +'\'); return false;"> Back </button> <button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\''+ next +'\'); hideStuff(\''+ i +'\'); return false;"> Next </button>');
+		}
+		document.write('</div>');    
+	}
 }
 
-function resetQuiz(showConfirm) {
-  if(showConfirm)
-    if(!confirm("Anda ingin memulai dari awal?"))
-      return false;
-  document.location = document.location;
+function resetQuiz() {//belum sempurna masih nyangkut pas nge-klik lihat nilai
+bootbox.confirm("Anda ingin mengulang test?", function(result) {
+    if (result) {
+        document.location = document.location;
+    }
+});
+
+
 }
 
 function submitAnswer(questionId, obj, classId, labelId) {
@@ -66,7 +81,7 @@ function showResult(questionId) {
 
 function showScore() {
   if(answered != answers.length) {
-    alert("You have not answered all of the questions yet!");
+    alert("Maaf, anda belum menjawab seluruh pertanyaan");
     return false;
   }
   questionCount = answers.length;
@@ -79,8 +94,8 @@ function showScore() {
       incorrect++;
   }
   pc = Math.round((correct / questionCount) * 100);
-  alertMsg = "You scored " + correct + " out of " + questionCount + "\n\n";
-  alertMsg += "You correctly answered " + pc + "% of the questions! \n\n";
+  alertMsg = "Jawaban benar: " + correct + " dari " + questionCount + " soal.\n\n";
+  alertMsg += "Persentase jawaban benar: " + pc + "% dari seluruh soal! \n\n";
   if(pc == 100)
     alertMsg += response[0];
   else if(pc >= 90)
@@ -123,3 +138,15 @@ function showStuff(id) {
 function hideStuff(id) {
   document.getElementById(id).style.display = 'none';
 }
+
+//tambahan liphoe
+function validateForm()
+{
+var x=document.forms["myForm"]["fname"].value;
+if (x==null || x=="")
+  {
+  alert("Name must be filled out");
+  return false;
+  }
+}
+

@@ -7,6 +7,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	 <link href="css/navbar.css" rel="stylesheet">
 		<style type="text/css">
 		body {
 			padding-top: 60px;
@@ -26,14 +27,16 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/quiz_functions1.js"></script>
 	<script src="js/quiz_config.js"></script>
+	<script src="js/bootbox.js"></script>
+	<script src="js/bootbox.min.js"></script>
   </head>
 
   <body>
 	<!-- Navigasi -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-					<a class="brand" href="index.html"> <i class="icon-home icon-white"></i>   QUIZ AL-HAQ</a>
+				<a class="brand" href="./index.html">I-Quiz</a>
 			</div>
 		</div>
 	</div>
@@ -51,10 +54,14 @@
 				<!-- form nama -->
 				<div class="span4 offset4">
 					<div class="well">
-						<form class="form-signin">
+						<form class="form-signin" name="myForm" method="post">
 							<h3 class="form-signin-heading">Masukkan Nama</h3>
-							<input type="text" class="input-block-level" placeholder="Nama">
-							<button class="btn btn-medium btn-success" type="submit" onclick="showStuff('blue'); hideStuff('red'); return false;"> Show </button>
+							<input type="text" name="fname" class="input-block-level" placeholder="Nama">
+							
+							<!--<button class="btn btn-medium btn-success" type="submit" onclick="return validateForm();"> Start </button>-->
+							<button class="btn btn-medium btn-primary" type="submit" onclick="showStuff('blue'); hideStuff('red'); return false;"> Mulai </button>
+						
+							<!--<button class="btn btn-medium btn-success" type="submit" onclick="showStuff('blue'); hideStuff('red'); return false;"> Show </button>-->
 						</form>
 					</div>	
 				</div>
