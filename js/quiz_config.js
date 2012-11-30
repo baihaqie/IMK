@@ -3,8 +3,20 @@ var questions = new Array();
 var choices = new Array();
 var answers = new Array();
 var response = new Array();
+var exp = new Array();
 
 // To add more questions, just follow the format below.
+exp[0]="nol";
+exp[1]="satu";
+exp[2]="dua";
+exp[3]="tiga";
+exp[4]="empat";
+exp[5]="lima";
+exp[6]="enam";
+exp[7]="tujuh";
+exp[8]="depalan";
+exp[9]="sembilan";
+
 
 id[0]="0";
 questions[0] = "Ilmu yang menunjang interaksi manusia komputer yang digunakan untuk mempelajari kemampuan fisik dari pengguna (manusia) adalah ...";
@@ -91,7 +103,7 @@ questions[8] = "Untuk meningkatkan usability, digunakan prinsip CRAP. Konsistens
 choices[8] = new Array();
 choices[8][0] = "Consistency";
 choices[8][1] = "Contrast";
-choices[8][2] = "Repitition";
+choices[8][2] = "Repetition";
 choices[8][3] = "Alignment";
 choices[8][4] = "Proximity";
 answers[8] = choices[8][2];
@@ -101,7 +113,7 @@ questions[9] = "Membantu pengguna untuk fokus pada bagian yang penting, yang aka
 choices[9] = new Array();
 choices[9][0] = "Consistency";
 choices[9][1] = "Contrast";
-choices[9][2] = "Repitition";
+choices[9][2] = "Repetition";
 choices[9][3] = "Alignment";
 choices[9][4] = "Proximity";
 answers[9] = choices[9][1];
