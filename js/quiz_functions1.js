@@ -21,18 +21,21 @@ function renderQuiz()
 		
 		document.write('<B>Soal  ' +next+ '</B>');
 		document.write('<p class="question">' + questions[i] + ' <span id="result_' + i + '"><img src="blank.gif" style="border:0" alt="" /></span></p>');
-    	
+		
+		document.write('<div class="row">');
 		for(j=0;j<choices[i].length;j++) 
     	{
-			document.write('<div id ="'+ idDiv +'">');
-      		document.writeln('<button align="justify" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label>');
+			document.write('<div class="span6">');
+      		document.write('<button class="btn btn-medium btn-block" type="button" name="question_'+ i +'" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\');" /> <label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> &nbsp;&nbsp;' + choices[i][j] + '</label> </button><br>');
 			document.write('</div>');
+		}	
+			//backup 17:17
+			/*document.write('<div id ="'+ idDiv +'">');
+      		document.writeln('<button align="justify" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label>');
+			document.write('</div>');*/
 			
-			document.write('<br>');
-			
-			//document.write('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
-    	}
-		
+    	//}
+		document.write('<div class="span6">');
 		if(i===0)
 		{
 			document.writeln('<button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\''+ next +'\'); hideStuff(\''+ i +'\'); return false;">  Next  </button>');
@@ -46,7 +49,10 @@ function renderQuiz()
 		{
 			document.write('<button class="btn btn-medium btn-info" type="submit" onclick="showStuff(\''+ back +'\'); hideStuff(\''+ i +'\'); return false;"> Back </button> <button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\''+ next +'\'); hideStuff(\''+ i +'\'); return false;"> Next </button>');
 		}
-		document.write('</div>');    
+		document.write('</div>');
+		document.write('</div>');
+		document.write('</div>'); 
+   
 	}
 }
 /*
@@ -127,7 +133,7 @@ function showScore() {
 function disableQuestion(classId) {
   var alltags=document.all? document.all : document.getElementsByTagName("*")
   for (i=0; i<alltags.length; i++) {
-    if (alltags[i].className == classId) {
+    if (alltags[i].name == classId) {
       alltags[i].disabled = true;
     }
   }
