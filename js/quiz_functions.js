@@ -1,122 +1,146 @@
-var useranswers = new Array();
-var answered = 0;
-var i = 0;
+var id = new Array();
+var questions = new Array();
+var choices = new Array();
+var answers = new Array();
+var response = new Array();
+var exp = new Array();
+var nexp = new Array();
 
-/*function renderQuiz() {
-  for(i=0;i<questions.length;i++) {
-    document.writeln('<p class="question">' + questions[i] + ' <span id="result_' + i + '"><img src="blank.gif" style="border:0" alt="" /></span></p>');
-    for(j=0;j<choices[i].length;j++) {
-      document.writeln('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
-    }
-    //ini buat bikin button tiap nomer
-    document.write('<button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\'red\'); return false;"> Show </button> <br>');
-  }
-  document.writeln('<p><input type="submit" value="Show Score" onclick="showScore()" /> <input type="submit" value="Reset Quiz" onclick="resetQuiz(true)" /></p><p style="display:none"><img src="correct.gif" style="border:0" alt="Correct!" /><img src="incorrect.gif" style="border:0" alt="Incorrect!" /></p>');
-}*/
+nexp[0]="Ergonomi adalah ilmu yang mempelajari interaksi antara manusia dengan elemen-elemen lain dalam suatu sistem salah satunya mempelajari tentang kemampuan fisik dari pengguna.";
+nexp[1]="Faktor keberhasilan sistem dapat dilihat dari tiga hal yaitu useful (berguna), used (digunakan) dan usable (dapat digunakan). Dapat dikerjakan dengan mudah dan alamiah, tanpa adanya bahaya kesalahan merupakan faktor keberhasilan usable.";
+nexp[2]="Tahap pemrosesan informasi yaitu, menangkap informasi, perbandingan, pengambilan keputusan dan aksi";
+nexp[3]="Fitt's Law merupakan hukum yang menyatakan bahwa waktu reaksi berbanding lurus dengan jarak";
+nexp[4]="Pengukuran daya guna (usability) dapat dilakukan dengan tiga faktor yaitu efektivitas, efisiensi, dan kepuasan subjektif";
+nexp[5]="Pembuatan laporan keuangan lebih efisien dilakukan di Ms.Excel (sdh tersedia rumus)";
+nexp[6]="Ketelitian dan kelengkapan di mana user dapat mencapai tujuan merupakan atribut daya guna efektifitas";
+nexp[7]="Memastikan design dapat dipahami user dan konsisten serta fleksible merupakan fase Design";
+nexp[8]="Konsistensi dalam suatu sistem dalam prinsip CRAP termasuk dalam prinsip Repetition.";
+nexp[9]="Membantu pengguna untuk fokus pada bagian yang penting, yang akan menuntun pengguna untuk mengetahui apa yang harus dilakukan, merupakan prinsip Contrast";
 
-//Renderquiz yg satu2
-/*function renderQuiz() {
-    document.writeln('<p class="question">' + questions[i] + ' <span id="result_' + i + '"><img src="blank.gif" style="border:0" alt="" /></span></p>');
-    for(j=0;j<choices[i].length;j++) {
-      document.writeln('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
-    }
-    //ini buat bikin button tiap nomer
-    document.write('<button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\'red\'); return false;"> Show </button> <br>');
-  document.writeln('<p><input type="submit" value="Show Score" onclick="showScore()" /> <input type="submit" value="Reset Quiz" onclick="resetQuiz(true)" /></p><p style="display:none"><img src="correct.gif" style="border:0" alt="Correct!" /><img src="incorrect.gif" style="border:0" alt="Incorrect!" /></p>');
-}*/
+exp[0]="nol";
+exp[1]="satu";
+exp[2]="dua";
+exp[3]="tiga";
+exp[4]="empat";
+exp[5]="lima";
+exp[6]="enam";
+exp[7]="tujuh";
+exp[8]="delapan";
+exp[9]="sembilan";
 
-function renderQuiz() {
-  for(i=0;i<questions.length;i++) {
-    document.writeln('<p class="question">' + questions[i] + ' <span id="result_' + i + '"><img src="blank.gif" style="border:0" alt="" /></span></p>');
-    for(j=0;j<choices[i].length;j++) {
-      document.writeln('<input type="radio" name="answer_' + i + '" value="' + choices[i][j] + '" id="answer_' + i + '_' + j + '" class="question_' + i + '" onclick="submitAnswer(' + i + ', this, \'question_' + i + '\', \'label_' + i + '_' + j + '\')" /><label id="label_' + i + '_' + j + '" for="answer_' + i + '_' + j + '"> ' + choices[i][j] + '</label><br />');
-    }
-    //ini buat bikin button tiap nomer
-    document.write('<button class="btn btn-medium btn-success" type="submit" onclick="showStuff(\'red\'); return false;"> Show </button> <br>');
-  }
-  document.writeln('<p><input type="submit" value="Show Score" onclick="showScore()" /> <input type="submit" value="Reset Quiz" onclick="resetQuiz(true)" /></p><p style="display:none"><img src="correct.gif" style="border:0" alt="Correct!" /><img src="incorrect.gif" style="border:0" alt="Incorrect!" /></p>');
-}
+id[0]="0";
+questions[0] = "Ilmu yang menunjang interaksi manusia komputer yang digunakan untuk mempelajari kemampuan fisik dari pengguna (manusia) adalah ...";
+choices[0] = new Array();
+choices[0][0] = "Sosiologi";
+choices[0][1] = "Ergonomi";
+choices[0][2] = "Astrologi";
+choices[0][3] = "Psikologi";
+choices[0][4] = "Antropologi";
+answers[0] = choices[0][1];
+
+id[1]="1";
+questions[1] = "Dapat dikerjakan dengan mudah dan alamiah, tanpa adanya bahaya kesalahan merupakan faktor keberhasilan sistem, yaitu ...";
+choices[1] = new Array();
+choices[1][0] = "Usability";
+choices[1][1] = "Used";
+choices[1][2] = "Usefull";
+choices[1][3] = "Usable";
+choices[1][4] = "Usage";
+answers[1] = choices[1][3];
+
+id[2]="2";
+questions[2] = "Dibawah ini yang tidak termasuk dalam tahap pemrosesan informasi adalah ...";
+choices[2] = new Array();
+choices[2][0] = "Aksi";
+choices[2][1] = "Reaksi";
+choices[2][2] = "Perbandingan";
+choices[2][3] = "Menangkap informasi";
+choices[2][4] = "Pengambilan keputusan";
+answers[2] = choices[2][1];
+
+id[3]="3";
+questions[3] = "Fitt’s Law menyatakan bahwa ...";
+choices[3] = new Array();
+choices[3][0] = "Waktu reaksi berbanding lurus dengan jarak";
+choices[3][1] = "Waktu reaksi berbanding lurus dengan ukuran";
+choices[3][2] = "Waktu reaksi berbanding terbalik dengan jarak";
+choices[3][3] = "Waktu reaksi merupakan perkalian antara jarak dengan ukuran";
+choices[3][4] = "Dibutuhkan tiga konstanta untuk menentukan waktu reaksi";
+answers[3] = choices[3][0];
+
+id[4]="4";
+questions[4] = "Daya guna (usability) merupakan salah satu faktor untuk mengukur sejauh mana penerimaan pengguna terhadap sistem. Pengukuran dapat dilakukan dengan tiga hal, yaitu ...";
+choices[4] = new Array();
+choices[4][0] = "Efisiensi, relevansi, konsistensi";
+choices[4][1] = "Efektifitas, konsistensi, kepuasan";
+choices[4][2] = "Kepuasan, relevansi, konsistensi";
+choices[4][3] = "Efektifitas, efisiensi, konsistensi";
+choices[4][4] = "Efektifitas, efisiensi, kepuasan";
+answers[4] = choices[4][4];
+
+id[5]="5";
+questions[5] = "Pembuatan laporan keuangan suatu perusahaan dalam bentuk tabel di microsoft office bisa dilakukan dengan menggunakan microsoft word dan microsoft excel. Rosi membuat laporan keuangan perusahaan dengan menggunakan microsoft word, maka Rosi tidak memenuhi atribut daya guna ...";
+choices[5] = new Array();
+choices[5][0] = "Learnability";
+choices[5][1] = "Efektifitas";
+choices[5][2] = "Efisiensi";
+choices[5][3] = "Memorability";
+choices[5][4] = "Error ";
+answers[5] = choices[5][2];
+
+id[6]="6";
+questions[6] = "Ketelitian dan kelengkapan di mana user dapat mencapai tujuan merupakan atribut daya guna ...";
+choices[6] = new Array();
+choices[6][0] = "Learnability";
+choices[6][1] = "Efektifitas";
+choices[6][2] = "Efisiensi";
+choices[6][3] = "Memorability";
+choices[6][4] = "Error";
+answers[6] = choices[6][1];
+
+id[7]="7";
+questions[7] = "Usability life cycle terdiri dari tiga fase. Memastikan design dapat dipahami user dan konsisten serta fleksible merupakan fase ...";
+choices[7] = new Array();
+choices[7][0] = "Interview";
+choices[7][1] = "Pre design";
+choices[7][2] = "Modeling ";
+choices[7][3] = "Design";
+choices[7][4] = "Post design";
+answers[7] = choices[7][3];
+
+id[8]="8";
+questions[8] = "Untuk meningkatkan usability, digunakan prinsip CRAP. Konsistensi dalam suatu sistem pada prinsip CRAP termasuk dalam prinsip ...";
+choices[8] = new Array();
+choices[8][0] = "Consistency";
+choices[8][1] = "Contrast";
+choices[8][2] = "Repetition";
+choices[8][3] = "Alignment";
+choices[8][4] = "Proximity";
+answers[8] = choices[8][2];
+
+id[9]="9";
+questions[9] = "Membantu pengguna untuk fokus pada bagian yang penting, yang akan menuntun pengguna untuk mengetahui apa yang harus dilakukan, merupakan prinsip CRAP, yaitu ...";
+choices[9] = new Array();
+choices[9][0] = "Consistency";
+choices[9][1] = "Contrast";
+choices[9][2] = "Repetition";
+choices[9][3] = "Alignment";
+choices[9][4] = "Proximity";
+answers[9] = choices[9][1];
 
 
-function resetQuiz(showConfirm) {
-  if(showConfirm)
-    if(!confirm("Are you sure you want to reset your answers and start from the beginning?"))
-      return false;
-  document.location = document.location;
-}
+response[0] = "Excellent! Top marks!";
 
-function submitAnswer(questionId, obj, classId, labelId) {
-  useranswers[questionId] = obj.value;
-  document.getElementById(labelId).style.fontWeight = "bold";
-  disableQuestion(classId);
-  showResult(questionId);
-  answered++;
-}
+response[1] = "Excellent! Try again to get 100%!"
 
-function showResult(questionId) {
-  if(answers[questionId] == useranswers[questionId]) {
-    document.getElementById('result_' + questionId).innerHTML = '<img src="img/correct.gif" style="border:0" alt="Correct!" />';
-  } else {
-    document.getElementById('result_' + questionId).innerHTML = '<img src="img/incorrect.gif" style="border:0" alt="Incorrect!" />';
-  }
-}
+response[2] = "Well done! That is a good score, can you do better?";
 
-function showScore() {
-  if(answered != answers.length) {
-    alert("You have not answered all of the questions yet!");
-    return false;
-  }
-  questionCount = answers.length;
-  correct = 0;
-  incorrect = 0;
-  for(i=0;i<questionCount;i++) {
-    if(useranswers[i] == answers[i])
-      correct++;
-    else
-      incorrect++;
-  }
-  pc = Math.round((correct / questionCount) * 100);
-  alertMsg = "You scored " + correct + " out of " + questionCount + "\n\n";
-  alertMsg += "You correctly answered " + pc + "% of the questions! \n\n";
-  if(pc == 100)
-    alertMsg += response[0];
-  else if(pc >= 90)
-    alertMsg += response[1];
-  else if(pc >= 70)
-    alertMsg += response[2];
-  else if(pc > 50)
-    alertMsg += response[3];
-  else if(pc >= 40)
-    alertMsg += response[4];
-  else if(pc >= 20)
-    alertMsg += response[5];
-  else if(pc >= 10)
-    alertMsg += response[6];
-  else
-    alertMsg += response[7];
-  if(pc < 100) {
-    if(confirm(alertMsg))
-      resetQuiz(false);
-    else
-      return false;
-  } else {
-    alert(alertMsg);
-  }
-}
+response[3] = "Nice one! You got more than half of the questions right, can you do better?";
 
-function disableQuestion(classId) {
-  var alltags=document.all? document.all : document.getElementsByTagName("*")
-  for (i=0; i<alltags.length; i++) {
-    if (alltags[i].className == classId) {
-      alltags[i].disabled = true;
-    }
-  }
-}
+response[4] = "You got some questions right, you can do better!";
 
-function showStuff(id) {
-  document.getElementById(id).style.display = 'block';
-}
+response[5] = "You didn't do too well, why not try again!?";
 
-function hideStuff(id) {
-  document.getElementById(id).style.display = 'none';
-}
+response[6] = "That was pretty poor!  Try again to improve!";
+
+response[7] = "Oops, try again after you take some lesson!";
