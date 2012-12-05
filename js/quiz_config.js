@@ -6,7 +6,6 @@ var response = new Array();
 var exp = new Array();
 var nexp = new Array();
 
-// To add more questions, just follow the format below.
 nexp[0]="Ergonomi adalah ilmu yang mempelajari interaksi antara manusia dengan elemen-elemen lain dalam suatu sistem salah satunya mempelajari tentang kemampuan fisik dari pengguna.";
 nexp[1]="Faktor keberhasilan sistem dapat dilihat dari tiga hal yaitu useful (berguna), used (digunakan) dan usable (dapat digunakan). Dapat dikerjakan dengan mudah dan alamiah, tanpa adanya bahaya kesalahan merupakan faktor keberhasilan usable.";
 nexp[2]="Tahap pemrosesan informasi yaitu, menangkap informasi, perbandingan, pengambilan keputusan dan aksi";
@@ -129,19 +128,19 @@ choices[9][3] = "Alignment";
 choices[9][4] = "Proximity";
 answers[9] = choices[9][1];
 
-// response for getting 100%
+
 response[0] = "Excellent! Top marks!";
-// response for getting 90% or more
+
 response[1] = "Excellent! Try again to get 100%!"
-// response for getting 70% or more
+
 response[2] = "Well done! That is a good score, can you do better?";
-// response for getting over 50%
+
 response[3] = "Nice one! You got more than half of the questions right, can you do better?";
-// response for getting 40% or more
+
 response[4] = "You got some questions right, you can do better!";
-// response for getting 20% or more
+
 response[5] = "You didn't do too well, why not try again!?";
-// response for getting 10% or more
+
 response[6] = "That was pretty poor!  Try again to improve!";
-// response for getting 9% or less
+
 response[7] = "Oops, try again after you take some lesson!";
