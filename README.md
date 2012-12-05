@@ -37,4 +37,8 @@ Mahasiswa S1 Pendidikan Teknik Informatika Universitas Negeri Malang
 
 
 ## DEMO URL
+<<<<<<< HEAD
 baihaqie.github.com/IMK
+=======
+http://baihaqie.github.com/IMK/
+>>>>>>> master
